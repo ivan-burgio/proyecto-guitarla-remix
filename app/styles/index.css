@@ -75,8 +75,10 @@ main {
     transition-duration: 300ms;
 }
 
-.header .navegacion a:hover {
+.header .navegacion a:hover,
+.active {
     background-color: var(--primary);
+    color: var(--black) !important;
 }
 
 @media (min-width: 768px) {
