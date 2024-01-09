@@ -78,7 +78,7 @@ main {
 .header .navegacion a:hover,
 .header .active {
     background-color: var(--primary);
-    color: var(--black) !important;
+    color: black !important;
 }
 
 @media (min-width: 768px) {
@@ -90,5 +90,44 @@ main {
     .barra {
         flex-direction: row;
         justify-content: space-between;
+    }
+}
+
+/** Footer **/
+
+.footer {
+    background-color: var(--black);
+    padding: 5rem 0;
+    margin-top: 5rem;
+}
+
+.footer .navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .navegacion a,
+.footer .copyright {
+    color: var(--white);
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer .copyright {
+    text-align: center;
+    font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+    .footer .contenido {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer .navegacion {
+        flex-direction: row;
+        gap: 2rem;
     }
 }
