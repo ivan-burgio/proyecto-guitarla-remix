@@ -9,6 +9,8 @@
     grid-template-columns: 2fr 2fr;
     gap: 1rem;
     align-items: center;
+    max-width: 60rem;
+    margin: 0 auto;
 }
 
 .guitarra .contenido {
