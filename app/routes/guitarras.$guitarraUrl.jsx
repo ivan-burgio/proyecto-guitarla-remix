@@ -11,6 +11,15 @@ export function links() {
     ]
 }
 
+export function meta({data}) {
+    return [
+        {
+            title: `GuitarLA - ${data.data[0].attributes.nombre}`,
+            description: `Guitarras, venta de guitarras, guitarra ${data.data[0].attributes.nombre}.`,
+        },
+    ];
+}
+
 export async function loader({params}) {
     const { guitarraUrl } = params;
     const guitarra = await getGuitarra(guitarraUrl);
