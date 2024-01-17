@@ -72,16 +72,6 @@ function Document({ children }) {
 }
 
 /* Manejo de errores */
-export function CatchBoundary() {
-    const error = useCatch();
-
-    return (
-        <Document>
-            <p className="error">{error.status} {error.statusText}</p>
-        </Document>
-    )
-}
-
 export function ErrorBoundary() {
     const error = useRouteError();
 
