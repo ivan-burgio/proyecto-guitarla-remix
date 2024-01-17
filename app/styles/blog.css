@@ -4,10 +4,6 @@
     gap: 4rem;
 }
 
-.post {
-
-}
-
 .post .contenido {
     padding: 1.5rem;
 }
@@ -23,6 +19,11 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     overflow: hidden;
+}
+
+.post .fecha {
+    font-size: 1.6rem;
+    color: var(--primary);
 }
 
 @media (min-width: 768px) {
