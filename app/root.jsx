@@ -4,6 +4,8 @@ import {
     Outlet,
     Scripts,
     LiveReload,
+    useRouteError,
+    isRouteErrorResponse,
 } from "@remix-run/react";
 import styles from '~/styles/index.css';
 import Header from "~/components/header";
@@ -69,7 +71,7 @@ function Document({ children }) {
     );
 }
 
-/* Manjeo de errores */
+/* Manejo de errores */
 export function CatchBoundary() {
     const error = useCatch();
 
@@ -80,10 +82,16 @@ export function CatchBoundary() {
     )
 }
 
-export function ErrorBoundary({error}) {
-    return (
-        <Document>
-            <p className="error">{error.status} {error.statusText}</p>
-        </Document>
-    )
+export function ErrorBoundary() {
+    const error = useRouteError();
+
+    if(isRouteErrorResponse(error)) {
+        return (
+            <Document>
+                <p className="error">
+                    {error.status} {error.statusText}
+                </p>
+            </Document>
+        )
+    }
 }
