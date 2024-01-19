@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { getPosts } from "../models/post.server";
+import { getPosts } from "../models/posts.server";
 import Post from "../components/post";
 import styles from '~/styles/blog.css';
 
