@@ -41,6 +41,24 @@ export default function Guitarra() {
                 <h3>{nombre}</h3>
                 <p className="texto">{descripcion[0].children[0].text}</p>
                 <p className="precio">{precio}</p>
+
+                <form className="formulario">
+                    <label htmlFor="cantidad">Cantidad</label>
+
+                    <select name="" id="cantidad">
+                        <option value="">-- Seleccione --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <input
+                        type="submit"
+                        value="Agregar al carrito"
+                    />
+                </form>
             </div>
         </div>
     )
