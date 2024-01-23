@@ -95,10 +95,13 @@ main {
     transition-duration: 300ms;
 }
 
+.header .navegacion img {
+    width: 3rem;
+}
+
 .header .navegacion a:hover,
 .header .active {
     background-color: var(--primary);
-    color: black !important;
 }
 
 @media (min-width: 768px) {
@@ -133,6 +136,10 @@ main {
     font-size: 2rem;
     text-decoration: none;
     font-weight: 700;
+}
+
+.footer .navegacion a:last-of-type {
+    display: none;
 }
 
 .footer .copyright {
