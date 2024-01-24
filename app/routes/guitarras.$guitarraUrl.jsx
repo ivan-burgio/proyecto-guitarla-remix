@@ -1,46 +1,51 @@
 import { useState } from "react";
 import { getGuitarra } from "../models/guitarras.server";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useOutletContext } from "@remix-run/react";
 
-export async function loader({request, params}) {
+export async function loader({ request, params }) {
     const { guitarraUrl } = params;
     const guitarra = await getGuitarra(guitarraUrl);
 
-    if(guitarra.data.length === 0) {
-        throw new Response('', {
+    if (guitarra.data.length === 0) {
+        throw new Response("", {
             status: 404,
-            statusText: 'Guitarra no encontrada.',
-        })
+            statusText: "Guitarra no encontrada.",
+        });
     }
 
     return guitarra;
 }
 
 export function meta({ data }) {
-    if(!data) {
+    if (!data) {
         return [
-            { title: 'GuitarLA - Guitarra no encontrada' },
-            { descripcion: 'Guitarras, venta de guitarras, guitarra no encontrada' },
+            { title: "GuitarLA - Guitarra no encontrada" },
+            {
+                descripcion:
+                    "Guitarras, venta de guitarras, guitarra no encontrada",
+            },
         ];
     }
 
     return [
         { title: `GuitarLA - ${data.data[0].attributes.nombre}` },
-        { descripcion: `Guitarras, venta de guitarras, guitarra ${data.data[0].attributes.nombre}` },
+        {
+            descripcion: `Guitarras, venta de guitarras, guitarra ${data.data[0].attributes.nombre}`,
+        },
     ];
 }
 
 export default function Guitarra() {
-    const [ cantidad, setCantidad ] = useState(0);
+    const [cantidad, setCantidad] = useState(0);
 
     const guitarra = useLoaderData();
     const { nombre, descripcion, imagen, precio } = guitarra.data[0].attributes;
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(cantidad < 1) {
-            alert('Selecciona un cantidad');
+        if (cantidad < 1) {
+            alert("Selecciona un cantidad");
             return;
         }
 
@@ -50,14 +55,18 @@ export default function Guitarra() {
             nombre,
             precio,
             cantidad,
-        }
+        };
 
         console.log(guitarraSeleccionada);
-    }
+    };
 
     return (
         <div className="guitarra">
-            <img className="imagen" src={imagen.data.attributes.url} alt={`imagen de la guitarra ${nombre}`} />
+            <img
+                className="imagen"
+                src={imagen.data.attributes.url}
+                alt={`imagen de la guitarra ${nombre}`}
+            />
 
             <div className="contenido">
                 <h3>{nombre}</h3>
@@ -68,7 +77,7 @@ export default function Guitarra() {
                     <label htmlFor="cantidad">Cantidad</label>
 
                     <select
-                        onChange={ e => setCantidad(+e.target.value)}
+                        onChange={(e) => setCantidad(+e.target.value)}
                         id="cantidad"
                     >
                         <option value="0">-- Seleccione --</option>
@@ -79,12 +88,9 @@ export default function Guitarra() {
                         <option value="5">5</option>
                     </select>
 
-                    <input
-                        type="submit"
-                        value="Agregar al carrito"
-                    />
+                    <input type="submit" value="Agregar al carrito" />
                 </form>
             </div>
         </div>
-    )
+    );
 }
