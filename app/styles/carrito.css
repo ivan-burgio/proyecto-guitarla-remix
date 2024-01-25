@@ -1,5 +1,6 @@
 .contenido {
     display: grid;
+    align-items: flex-start;
     gap: 5rem;
 }
 
@@ -7,10 +8,48 @@
     background-color: #eaebeb;
     padding: 3rem;
     border-radius: 1rem;
+    position: sticky;
+    top: 3rem;
 }
 
 .carrito {
     padding: 3rem;
+}
+
+.producto {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 2px solid #cfcfcf;
+}
+
+.producto p {
+    margin: 0 0 1rem 0;
+}
+
+.producto span {
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+.producto:last-of-type {
+    border-bottom: none;
+}
+
+.nombre {
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+.precio {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.subtotal {
+    font-size: 2.2rem;
 }
 
 @media (min-width:768px) {
