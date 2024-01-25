@@ -36,6 +36,7 @@ export function meta({ data }) {
 }
 
 export default function Guitarra() {
+    const { agregarCarrito } = useOutletContext();
     const [cantidad, setCantidad] = useState(0);
 
     const guitarra = useLoaderData();
@@ -44,7 +45,7 @@ export default function Guitarra() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (cantidad < 1) {
+        if(cantidad < 1) {
             alert("Selecciona un cantidad");
             return;
         }
@@ -57,7 +58,7 @@ export default function Guitarra() {
             cantidad,
         };
 
-        console.log(guitarraSeleccionada);
+        agregarCarrito(guitarraSeleccionada);
     };
 
     return (
@@ -80,7 +81,9 @@ export default function Guitarra() {
                         onChange={(e) => setCantidad(+e.target.value)}
                         id="cantidad"
                     >
-                        <option value="0">-- Seleccione --</option>
+                        <option selected="true" value="0">
+                            -- Seleccione --
+                        </option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
