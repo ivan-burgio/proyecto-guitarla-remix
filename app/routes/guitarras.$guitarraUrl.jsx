@@ -38,14 +38,13 @@ export function meta({ data }) {
 export default function Guitarra() {
     const { agregarCarrito } = useOutletContext();
     const [cantidad, setCantidad] = useState(0);
-
     const guitarra = useLoaderData();
     const { nombre, descripcion, imagen, precio } = guitarra.data[0].attributes;
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(cantidad < 1) {
+        if (cantidad < 1) {
             alert("Selecciona un cantidad");
             return;
         }
