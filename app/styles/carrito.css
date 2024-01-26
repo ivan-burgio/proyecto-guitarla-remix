@@ -23,6 +23,7 @@
     align-items: center;
     padding: 3rem 0;
     border-bottom: 2px solid #cfcfcf;
+    position: relative;
 }
 
 .producto p {
@@ -60,6 +61,18 @@
 
 .subtotal {
     font-size: 2.2rem;
+}
+
+.btn_eliminar {
+    all: unset;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    color: red;
+}
+
+.btn_eliminar:hover {
+    cursor: pointer;
 }
 
 @media (min-width:768px) {
