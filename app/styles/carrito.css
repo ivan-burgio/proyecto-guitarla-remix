@@ -52,7 +52,8 @@
     font-size: 3.2rem;
 }
 
-.precio {
+.producto .precio {
+    margin-top: 2rem;
     font-weight: 700;
     color: var(--primary);
 }
