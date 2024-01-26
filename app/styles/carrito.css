@@ -38,6 +38,15 @@
     border-bottom: none;
 }
 
+.select {
+    all: unset;
+    border: 1px solid #cfcfcf;
+    text-align: center;
+    width: 100%;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
 .nombre {
     font-weight: 700;
     font-size: 3.2rem;
