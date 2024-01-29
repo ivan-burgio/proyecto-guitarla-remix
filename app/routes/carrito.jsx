@@ -37,7 +37,7 @@ export default function Carrito() {
                 <div className="carrito">
                     <h2>Articulos</h2>
 
-                    {carrito && carrito.length === 0 ? "Carrito Vacio" : carrito && carrito.map((producto) => (
+                    {carrito && carrito?.length === 0 ? "Carrito Vacio" : carrito && carrito?.map((producto) => (
                         <div key={producto.id} className="producto">
                             <div>
                                 <img
